@@ -1,0 +1,14 @@
+{
+  "name": "fxos-achievements",
+  "description": "An app for unlocking and collecting achievements",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fxos/achievements.git"
+  },
+  "license": "MPL",
+  "dependencies": {
+    "fxos-build": "0.3.x",
+    "gulp": "3.8.x"
+  }
+}
