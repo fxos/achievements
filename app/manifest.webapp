@@ -1,0 +1,17 @@
+{
+  "name": "Achievements",
+  "description": "An app for unlocking and collecting achievements",
+  "type": "certified",
+  "launch_path": "./index.html",
+  "permissions": {
+    "themeable": {},
+    "desktop-notification": {
+      "description": "For notifying the user about unlocked achievements"
+    }
+    "settings": {
+      "description": "For accessing badges related settings"
+      "access":"readonly"
+    }
+  },
+  "icons": {}
+}
