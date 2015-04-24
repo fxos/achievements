@@ -8,21 +8,24 @@ export default class ListItemView extends View {
     this.el = document.createElement('li');
     this.el.classList.add('item');
     super(options);
+
+    if (this.achievement) {
+      this.render(this.achievement);
+    }
   }
 
   render(achievement) {
     super([achievement]);
-    IconHelper.setImage(this.el.querySelector('.icon'), achievement.icon);
-    this.list.appendChild(this.el);
+    IconHelper.setImage(this.el.querySelector('.icon'), achievement.image);
   }
 
-  template({ name, info, icon }) { // jshint ignore:line
+  template({ name, description }) {
     let string = `
       <img class="icon" />
       <div flex class="description">
         <p class="name">${this.capitalize(name)}</p>
       </div>
-      <span class="info">${this.capitalize(info)}</span>`;
+      <span class="desciption">${this.capitalize(description)}</span>`;
     return string;
   }
 

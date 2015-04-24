@@ -38,7 +38,7 @@ gaia-header {
   color: var(--text-color);
 }
 
-.achievements-list .info {
+.achievements-list .desciption {
   font-size: 14px;
   font-style: italic;
   color: var(--title-color);
