@@ -13,7 +13,7 @@ export default class MainController extends RoutingController {
   }
 
   main() {
-    this.view.render();
+    this.route();
     document.body.classList.remove('loading');
   }
 }

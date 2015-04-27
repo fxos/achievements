@@ -21,8 +21,4 @@ export default class ListController extends Controller {
   update(achievements) {
     this.model.achievements = achievements;
   }
-
-  main() {
-    this.view.render();
-  }
 }
