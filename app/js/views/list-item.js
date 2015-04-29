@@ -1,7 +1,7 @@
 'use strict';
 
-import { View } from 'components/fxos-mvc/dist/mvc';
-import { IconHelper } from 'js/lib/helpers';
+import { View } from 'fxos-mvc/dist/mvc';
+import { IconHelper } from 'app/js/lib/helpers';
 
 export default class ListItemView extends View {
   constructor(options) {
@@ -30,6 +30,7 @@ export default class ListItemView extends View {
   }
 
   capitalize(string) {
+    if (!string) { return ''; }
     return string[0].toUpperCase() + string.slice(1);
   }
 }

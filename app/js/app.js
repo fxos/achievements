@@ -1,7 +1,13 @@
+/* globals requirejs */
+
 'use strict';
 
-import 'js/globals';
-import MainController from 'js/controllers/main';
+requirejs.config({
+  baseUrl: 'components',
+  paths: {
+    app: '../',
+    'gaia-component': 'gaia-component/gaia-component'
+  }
+});
 
-let mainController = new MainController();
-mainController.main();
+requirejs(['app/js/index']);

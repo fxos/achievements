@@ -32,10 +32,16 @@ gaia-header {
   margin-right: 13px;
 }
 
-.achievements-list .name {
+.achievements-list .name, .no-achievements .achievements-list {
   margin: 0;
   font-size: 19px !important;
   color: var(--text-color);
+}
+
+.no-achievements .achievements-list {
+  padding: 16px;
+  text-align: center;
+  font-style: italic;
 }
 
 .achievements-list .desciption {
