@@ -39,9 +39,12 @@ gaia-header {
 }
 
 .no-achievements .achievements-list {
-  padding: 16px;
   text-align: center;
   font-style: italic;
+}
+
+.no-achievements .achievements-list .inner {
+  margin: 16px;
 }
 
 .achievements-list .desciption {
