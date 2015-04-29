@@ -8,7 +8,7 @@ export default class ListView extends View {
   constructor() {
     this.el = document.createElement('gaia-list');
     this.el.className = 'achievements-list';
-    this.listItems = Object.create(null);
+    this.listItems = new Map();
     document.body.appendChild(this.el);
   }
 
@@ -30,16 +30,20 @@ export default class ListView extends View {
       return;
     }
 
-    Object.keys(this.listItems).forEach(key => {
+    if (this.listItems.length === 0) {
+      this.el.textContent = '';
+    }
+
+    this.listItems.entries().forEach(([key, listItem]) => {
       if (key in achievements) { return; }
-      this.el.removeChild(this.listItems[key]);
-      delete this.listItems[key];
+      this.el.removeChild(listItem);
+      this.listItems.delete(key);
     });
 
     Object.keys(achievements).forEach(key => {
-      if (key in this.listItems) { return; }
+      if (this.listItems.has(key)) { return; }
       let listItem = new ListItemView({ achievement: achievements[key] });
-      this.listItems[key] = listItem;
+      this.listItems.set(key, listItem);
       this.el.appendChild(listItem.el);
     });
   }
