@@ -7,9 +7,9 @@
     "themeable": {},
     "desktop-notification": {
       "description": "For notifying the user about unlocked achievements"
-    }
+    },
     "settings": {
-      "description": "For accessing badges related settings"
+      "description": "For accessing badges related settings",
       "access":"readonly"
     }
   },
