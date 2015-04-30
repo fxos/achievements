@@ -21,11 +21,12 @@ export default class ListItemView extends View {
 
   template({ name, description }) {
     let string = `
-      <img class="icon" />
-      <div flex class="description">
-        <p class="name">${this.capitalize(name)}</p>
+      <img role="presentation" class="icon" />
+      <div role="presentation" class="description">
+        <h3 role="presentation" class="achievement-name">${this.capitalize(name)}</h3>
+        <h4 role="presentation" class="achievement-description">${this.capitalize(description)}</h4>
       </div>
-      <span class="desciption">${this.capitalize(description)}</span>`;
+    `;
     return string;
   }
 

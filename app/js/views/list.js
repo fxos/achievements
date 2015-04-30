@@ -8,43 +8,52 @@ export default class ListView extends View {
   constructor() {
     this.el = document.createElement('gaia-list');
     this.el.className = 'achievements-list';
-    this.listItems = new Map();
+    this.listItems = Object.create(null);
     document.body.appendChild(this.el);
   }
 
-  hasAchievements(achievements) {
-    if (!achievements) { return false; }
+  noAchievements(achievements) {
+    if (!achievements) { return true; }
     for (let key in achievements) {
-      if (achievements.hasOwnProperty(key)) { return true; }
+      if (achievements.hasOwnProperty(key)) { return false; }
     }
-    return false;
+    return true;
   }
 
-  render(achievements) {
-    let hasAchievements = this.hasAchievements(achievements);
+  removeOldAchievements(achievements, oldAchievements) {
+    for (let key in oldAchievements) {
+      if (key in achievements) { continue; }
+      this.el.removeChild(this.listItems[key]);
+      delete this.listItems[key];
+    }
+  }
 
-    document.body.classList.toggle('no-achievements', !hasAchievements);
+  addNewAchivements(achievements, oldAchievements) {
+    for (let key in achievements) {
+      if (oldAchievements && key in oldAchievements) { continue; }
+      let listItem = new ListItemView({ achievement: achievements[key] });
+      this.listItems[key] = listItem;
+      this.el.appendChild(listItem.el);
+    }
+  }
 
-    if (!hasAchievements) {
+  render({name, object, oldAchievements}) {
+    let achievements = object.achievements;
+    let noAchievements = this.noAchievements(achievements);
+    let noOldAchievements = this.noAchievements(oldAchievements);
+
+    document.body.classList.toggle('no-achievements', noAchievements);
+
+    if (noAchievements) {
       this.el.textContent = 'You have no unlocked achievements yet.';
       return;
     }
 
-    if (this.listItems.length === 0) {
+    if (noOldAchievements) {
       this.el.textContent = '';
     }
 
-    this.listItems.entries().forEach(([key, listItem]) => {
-      if (key in achievements) { return; }
-      this.el.removeChild(listItem);
-      this.listItems.delete(key);
-    });
-
-    Object.keys(achievements).forEach(key => {
-      if (this.listItems.has(key)) { return; }
-      let listItem = new ListItemView({ achievement: achievements[key] });
-      this.listItems.set(key, listItem);
-      this.el.appendChild(listItem.el);
-    });
+    this.removeOldAchievements(achievements, oldAchievements);
+    this.addNewAchivements(achievements, oldAchievements);
   }
 }

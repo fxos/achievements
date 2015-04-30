@@ -1,54 +1,9 @@
+@import '../components/base/base.css';
+
 body {
   margin: 0;
-  font-size: 17px;
   font-family: "FiraSans";
-  overflow-x: hidden;
-  background-color: var(--background);
-  color: var(--title-color);
+  background: white;
 }
 
-body.loading {}
-
-gaia-header {
-  --header-background: #9ab0c0;
-  --header-icon-color: #ffffff;
-  --header-title-color: #ffffff;
-
-}
-
-.achievements-list {
-  position: absolute !important;
-  width: 100%;
-  transition: transform 0.2s ease;
-}
-
-.achievements-list .item {
-  height: 70px;
-}
-
-.achievements-list .icon {
-  max-height: 100%;
-  float: left;
-  margin-right: 13px;
-}
-
-.achievements-list .name, .no-achievements .achievements-list {
-  margin: 0;
-  font-size: 19px !important;
-  color: var(--text-color);
-}
-
-.no-achievements .achievements-list {
-  --margin: 16px;
-  text-align: center;
-  font-style: italic;
-  margin: var(--margin);
-  width: calc(100% - var(--margin) * 2);
-}
-
-.achievements-list .desciption {
-  font-size: 14px;
-  font-style: italic;
-  color: var(--title-color);
-  display: inline;
-}
+.loading {}
