@@ -1,0 +1,9 @@
+@import '../components/base/base.css';
+
+body {
+  margin: 0;
+  font-family: "FiraSans";
+  background: white;
+}
+
+.loading {}

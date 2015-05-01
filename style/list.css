@@ -1,0 +1,27 @@
+.achievements-list {
+  transition: transform 0.2s ease;
+}
+
+.no-achievements .achievements-list {
+  font-size: 1.2rem !important;
+  text-align: center;
+  font-style: italic;
+  margin: .8rem 1.4rem;
+}
+
+.achievements-list .achievement-name {
+  font-size: 1.2rem;
+}
+
+.achievements-list .achievement-description {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.achievements-list .icon {
+  margin-right: 10px;
+  width: 4rem;
+  height: 4rem;
+  flex-grow: 0;
+  align-self: flex-start;
+}
