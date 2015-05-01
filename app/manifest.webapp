@@ -2,7 +2,7 @@
   "name": "Achievements",
   "description": "An app for unlocking and collecting achievements",
   "type": "certified",
-  "launch_path": "./index.html",
+  "launch_path": "/index.html",
   "permissions": {
     "themeable": {},
     "desktop-notification": {
@@ -13,5 +13,15 @@
       "access":"readonly"
     }
   },
-  "icons": {}
+  "icons": {},
+  "activities": {
+    "view": {
+      "filters": {
+        "type": "achievement"
+      },
+      "disposition": "inline",
+      "returnValue": true,
+      "href": "/index.html"
+    }
+  }
 }
